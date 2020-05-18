@@ -90,8 +90,7 @@ step(null, scope = list(lower=null, upper=full), direction="forward")
 #Variables to consider: CHI_score_0 + cust_age_months + days_since_last_login + 
 #CHI_score_0_1 + views_0_1 + sup_case_0 + sup_case_0_1 + login_0_1 +   blog_articles_0_1
 
-#-------------------------------------------------------------------------------------------------------
-#Question 1
+
 #Is Wall's belief about the dependence of churn rates on customer age supported by the data? 
 #univaraite analysis of customer age 
 hist(qwe$cust_age_months, main = "Customer Age", col=c("steelblue"), freq=F)
@@ -129,8 +128,7 @@ legend("topright",
 #the median age for customer with churn rate yes and no lie on the same range, indicating that there is no dependency determined 
 #for customer age to churn rate being yes or no. 
 # From the plots, we can conclude that the lines overlap which show that there is no dependance between the two variables.
-#---------------------------------------------------------------------------------------------------------
-#Question 2 
+
 #logistic regression model that best predicts the probability that a customer leaves
 xtabs(~ cust_age_months+churn_rate, data=qwe_both1)
 #Customer churn is the most for the customers to have left for 12 months
@@ -280,10 +278,8 @@ cust5203
 #The actual value of the customer_churn is "no"
 
 
-#--------------------------------------------------------------------------------------------------------------
 
-#Question 3
-#provide the list of 100 customers with the highest churn probabilities and the top three drivers of churn for each customer
+#list of 100 customers with the highest churn probabilities and the top three drivers of churn for each customer
 View(qwe)
 Pred100<- predict(logit, newdata = qwe_both1, type = "response")
 Pred_order <- Pred100[order(Pred100, decreasing = T)]
